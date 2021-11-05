@@ -15,5 +15,5 @@
 
 ## 📃 License
 * This project is licensed under the [MIT
-License](https://github.com/orhanemree/Daily-Article-from-Medium/blob/main/LICENSE)
+License](https://github.com/orhanemree/Daily-Article-from-Medium/blob/master/LICENSE)
 
