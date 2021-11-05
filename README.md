@@ -1,10 +1,10 @@
-# Daily Article from [Medium](https://medium.com/)
+<h1 align="center">Daily Article from <a href="https://medium.com/">Medium</a></h1>
 
 ## ✏️ About 
 * A project that automatically sends you a Medium article on a topic of your choosing to your email address daily.
 * Not ready yet!!!
 
-## Librarys I used
+## 🐍 Librarys I used
 |Library|Version|Reason|
 |-------|-------|------|
 |requests|2.26.0|Get page source code|
