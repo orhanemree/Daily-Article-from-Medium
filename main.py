@@ -7,8 +7,6 @@ import schedule
 import time
 import os
 
-print("Program started successfully!")
-
 load_dotenv('.env')
 
 env = dict(dotenv_values(".env"))
@@ -22,6 +20,7 @@ client_tags = os.getenv("CLIENT_TAGS").split()
 def job():
     # loop for send special email everyone in list "client_emails"
     for i in range(len(client_names)):
+        print("Program started successfully!")
 
         # get page source code with requests
         client_tag = client_tags[i]
@@ -86,16 +85,20 @@ def job():
         current_date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
         # send email
-        try:
-            server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
-            server.ehlo()
-            server.login(gmail_user, gmail_password)
-            server.sendmail(gmail_user, client_email, message)
-            server.close()
-            print(f"Email sent to {client_name} at {current_date}.")
-        except:
-            print("Something went wrong...")
-
+        # try:
+        #     server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+        #     server.ehlo()
+        #     server.login(gmail_user, gmail_password)
+        #     server.sendmail(gmail_user, client_email, message)
+        #     server.close()
+        #     print(f"Email sent to {client_name} at {current_date}.")
+        # except:
+        #     print("Something went wrong...")
+        server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+        server.ehlo()
+        server.login(gmail_user, gmail_password)
+        server.sendmail(gmail_user, client_email, message)
+        server.close()
         i = i+1
     else:
         print("Program finished successfully!")
