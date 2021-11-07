@@ -85,20 +85,28 @@ def job():
         current_date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
         # send email
-        # try:
-        #     server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
-        #     server.ehlo()
-        #     server.login(gmail_user, gmail_password)
-        #     server.sendmail(gmail_user, client_email, message)
-        #     server.close()
-        #     print(f"Email sent to {client_name} at {current_date}.")
-        # except:
-        #     print("Something went wrong...")
-        server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
-        server.ehlo()
-        server.login(gmail_user, gmail_password)
-        server.sendmail(gmail_user, client_email, message)
-        server.close()
+        try:
+            server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+            server.ehlo()
+            server.login(gmail_user, gmail_password)
+            server.sendmail(gmail_user, client_email, message)
+            server.close()
+            print(f"Email sent to {client_name} at {current_date}.")
+        except UnicodeEncodeError:
+            message = f"Subject: Daily Article from Medium\n" \
+                      f"Hello again {client_name}! Take a look at the todays article.\n" \
+                      f"Read full article here: https://medium.com/"
+            print("Unicode encode error. Message changed.")
+
+            try:
+                server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+                server.ehlo()
+                server.login(gmail_user, gmail_password)
+                server.sendmail(gmail_user, client_email, message)
+                server.close()
+                print(f"Email sent to {client_name} at {current_date}.")
+            except:
+                print("Something went wrong...")
         i = i+1
     else:
         print("Program finished successfully!")
