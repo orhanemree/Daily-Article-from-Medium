@@ -112,7 +112,7 @@ def job():
         print("Program finished successfully!")
 
 # Run script every day at 12.00
-# schedule.every().day.at("12:00").do(job)
+# schedule.every().day.at("20:00").do(job)
 schedule.every(1).minutes.do(job) # every minute for now in test time
 
 while 1:
