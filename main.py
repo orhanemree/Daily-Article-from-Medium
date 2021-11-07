@@ -13,11 +13,11 @@ load_dotenv('.env')
 
 env = dict(dotenv_values(".env"))
 gmail_user = os.getenv("GMAIL_USER")
-gmail_password = env["GMAIL_PASSWORD"]
+gmail_password = os.getenv("GMAIL_PASSWORD")
 
-client_names = env["CLIENT_NAMES"].split(",")
-client_emails = env["CLIENT_EMAILS"].split()
-client_tags = env["CLIENT_TAGS"].split()
+client_names = os.getenv("CLIENT_NAMES").split(",")
+client_emails = os.getenv("CLIENT_EMAILS").split()
+client_tags = os.getenv("CLIENT_TAGS").split()
 
 def job():
     # loop for send special email everyone in list "client_emails"
