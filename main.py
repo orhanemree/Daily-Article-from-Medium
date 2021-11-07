@@ -72,6 +72,7 @@ def job():
 
         client_name = client_names[i]
         client_email = client_emails[i]
+        print(client_email)
 
         message = f"Subject: Daily Article from Medium\n" \
                   f"Hello again {client_name}! Take a look at the todays article.\n" \
