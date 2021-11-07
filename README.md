@@ -1,11 +1,11 @@
 <h1 align="center">Daily Article from <a href="https://medium.com/">Medium</a></h1>
 
 ## ✏️ About 
-* A project that automatically sends you a Medium article on a topic of your choosing to your email address daily.
+* A web scraping project that automatically sends you a Medium article on a topic to your email address daily.
 * Not ready yet!!!
 
 ## 🐍 Librarys I used
-|Library|Version|Reason|
+|Library|Version|Usage|
 |-------|-------|------|
 |requests|2.26.0|Get page source code|
 |beautifulsoup4|4.10.0|Parse page source code|
