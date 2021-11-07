@@ -1,23 +1,23 @@
 import requests
 from bs4 import BeautifulSoup
-from dotenv import dotenv_values
-from boto.s3.connection import S3Connection
+from dotenv import dotenv_values, load_dotenv
 from datetime import datetime
 import smtplib
 import schedule
 import time
+import os
 
 print("Program started successfully!")
 
+load_dotenv('.env')
+
 env = dict(dotenv_values(".env"))
-gmail_user = env["GMAIL_USER"]
+gmail_user = os.getenv("GMAIL_USER")
 gmail_password = env["GMAIL_PASSWORD"]
 
 client_names = env["CLIENT_NAMES"].split(",")
 client_emails = env["CLIENT_EMAILS"].split()
 client_tags = env["CLIENT_TAGS"].split()
-
-s3 = S3Connection(gmail_user, gmail_password, client_tags, client_names, client_emails)
 
 def job():
     # loop for send special email everyone in list "client_emails"
