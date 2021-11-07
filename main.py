@@ -9,12 +9,12 @@ import time
 print("Program started successfully!")
 
 env = dict(dotenv_values(".env"))
-gmail_user = env["gmail_user"]
-gmail_password = env["gmail_password"]
+gmail_user = env["GMAIL_USER"]
+gmail_password = env["GMAIL_PASSWORD"]
 
-client_names = env["client_names"].split(",")
-client_emails = env["client_emails"].split()
-client_tags = env["client_tags"].split()
+client_names = env["CLIENT_NAMES"].split(",")
+client_emails = env["CLIENT_EMAILS"].split()
+client_tags = env["CLIENT_TAGS"].split()
 
 def job():
     # loop for send special email everyone in list "client_emails"
