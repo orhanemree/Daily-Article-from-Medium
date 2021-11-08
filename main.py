@@ -71,7 +71,6 @@ def job():
 
         client_name = client_names[i]
         client_email = client_emails[i]
-        print(client_email)
 
         message = f"Subject: Daily Article from Medium\n" \
                   f"Hello again {client_name}! Take a look at the todays article.\n" \
@@ -92,10 +91,10 @@ def job():
             server.sendmail(gmail_user, client_email, message)
             server.close()
             print(f"Email sent to {client_name} at {current_date}.")
-        except UnicodeEncodeError:
-            message = f"Subject: Daily Article from Medium\n" \
-                      f"Hello again {client_name}! Take a look at the todays article.\n" \
-                      f"Read full article here: https://medium.com/"
+        except UnicodeEncodeError as e:
+            # message = message.replace(str(e).split("'")[4], " ")
+            message = message.replace("\u201c", " ")
+            message = message.replace("\u201d", " ")
             print("Unicode encode error. Message changed.")
 
             try:
@@ -105,8 +104,8 @@ def job():
                 server.sendmail(gmail_user, client_email, message)
                 server.close()
                 print(f"Email sent to {client_name} at {current_date}.")
-            except:
-                print("Something went wrong...")
+            except Exception as e:
+                print(e)
         i = i+1
     else:
         print("Program finished successfully!")
