@@ -100,7 +100,7 @@ def job():
         print("Program finished successfully!")
 
 # Run script every day at 20.00
-schedule.every().day.at("20:00").do(job)
+schedule.every().day.at("21:00").do(job)
 
 while 1:
     schedule.run_pending()
