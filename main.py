@@ -80,6 +80,8 @@ def job():
                   f"Description: {description}\n" \
                   f"Read full article here: {link}"
 
+        message = message.encode("utf-8")
+
         # get current date dd/mm/YY H:M:S
         current_date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
@@ -91,29 +93,18 @@ def job():
             server.sendmail(gmail_user, client_email, message)
             server.close()
             print(f"Email sent to {client_name} at {current_date}.")
-        except UnicodeEncodeError as e:
-            # message = message.replace(str(e).split("'")[4], " ")
-            message = message.replace("\u201c", " ")
-            message = message.replace("\u201d", " ")
-            print("Unicode encode error. Message changed.")
-
-            try:
-                server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
-                server.ehlo()
-                server.login(gmail_user, gmail_password)
-                server.sendmail(gmail_user, client_email, message)
-                server.close()
-                print(f"Email sent to {client_name} at {current_date}.")
-            except Exception as e:
-                print(e)
+        except Exception as e:
+            print(e)
         i = i+1
     else:
         print("Program finished successfully!")
 
 # Run script every day at 12.00
 # schedule.every().day.at("20:00").do(job)
-schedule.every(1).minutes.do(job) # every minute for now in test time
+# schedule.every(1).minutes.do(job) # every minute for now in test time
+#
+# while 1:
+#     schedule.run_pending()
+#     time.sleep(1)
 
-while 1:
-    schedule.run_pending()
-    time.sleep(1)
+job()
