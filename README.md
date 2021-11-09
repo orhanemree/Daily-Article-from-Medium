@@ -1,7 +1,7 @@
 <h1 align="center">Daily Article from <a href="https://medium.com/">Medium</a></h1>
 
 ## ✏️ About 
-* A web scraping project that automatically sends you a Medium article on a topic to your email address daily. (at 12.00 GTM+00.00)
+* A web scraping project that automatically sends you a Medium article on a topic to your email address daily. (at 12.00 GMT+00.00)
 * Uses Heroku servers.
 
 ## 🐍 Librarys I used
