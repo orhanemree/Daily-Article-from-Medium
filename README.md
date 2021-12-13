@@ -16,9 +16,9 @@
 ## 🧐 How to Use
 * First install project.
 ````bash
-git clone https://github.com/orhanemree/Daily-Article-from-Medium.git
+$ git clone https://github.com/orhanemree/Daily-Article-from-Medium.git
 $ cd Daily-Article-from-Medium
-pip3 install -r requirements.txt
+$ pip3 install -r requirements.txt
 ````
 * Create .env file and fill it yourself.
 * Be careful about commas and spaces.
@@ -31,7 +31,7 @@ CLIENT_TAGS = "<receiver_1_tag> <receiver_2_tag>"
 ````
 * Run.
 ````bash
-python main.py
+$ python main.py
 ````
 
 * Lastly, deploy code to Heroku.
