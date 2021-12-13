@@ -17,6 +17,7 @@
 * First install project.
 ````bash
 git clone https://github.com/orhanemree/Daily-Article-from-Medium.git
+$ cd Daily-Article-from-Medium
 pip3 install -r requirements.txt
 ````
 * Create .env file and fill it yourself.
@@ -32,6 +33,8 @@ CLIENT_TAGS = "<receiver_1_tag> <receiver_2_tag>"
 ````bash
 python main.py
 ````
+
+* Lastly, deploy code to Heroku.
 
 ### or
 * Just answer [this](https://forms.gle/MXgsoKW4aFfLEWD8A) Google Form and I'll add your name to our receiver list.
